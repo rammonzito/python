@@ -1,0 +1,42 @@
+O django vai trabalhar da seguinte forma:
+Projeto;
+  apps;
+
+
+virtual environment:
+python -m venv venv
+
+cd venv\Scripts
+.\activate
+
+(dentro da virtual environment)
+instalando o django via pip:
+pip install django
+
+--novo projeto django:
+django-admin startproject nome_projeto .
+o ponto acima é pra evitar criar duas pastas com o mesmo nome. Criar entao uma pasta no diretorio atual
+
+python manage.py migrate --pra criar o banco de dados)
+
+python manage.py createsuperuser ---pra criar um user admin
+
+python manage.py runserver ---pra rodar o servidor
+
+python .\manage.py startapp nome_da_app
+
+Registrar app na settings.py (installed_apps)
+
+python .\manage.py migrate
+Isso cria um banco de dados pra usar na aplicação (por default um sqlite3). O banco pode ser setado no settings na sessão DataBases
+
+python manage.py runserver
+Sobe um servidor pra visualizarmos a aplicação no browser
+
+python manage.py createsuperuser
+pra acessar paginas com autenticação. Exemplo default:  urls.py: admin
+
+python manage.py makemigrations
+descreve no arquivo meu_app/migrations/0001_initial.py como serão criadas as tables no banco
+rodar em seguida: python manage.py migrate
+isso vai aplicar o  que foi previsto no arquivo informado acima para o banco
