@@ -1,0 +1,10 @@
+#virtualenv venv
+
+
+
+
+
+############# virtualenv venv
+# $ source venv/Script/activate
+# $ pip install flask flask-jsonpify flask-sqlalchemy flask-restful
+# $ pip freeze
