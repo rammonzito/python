@@ -29,3 +29,4 @@ while not acertou:
 print(palavra)
 print("Parabéns! Você acertou!")
 input()
+
