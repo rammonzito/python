@@ -2,34 +2,10 @@ import requests
 
 
 # requests.get('https://api.github.com/user', auth=requests.auth.HTTPBasicAuth('user', 'pass'))
+# TO DO
+# Acessar Email, Abrir email X assunto, Copiar link do botão "ver boleto atualizado
 
-url = 'https://readthedocs.org/projects/python-guide/downloads/pdf/latest/'
+url = 'https://hsacondominios.superlogica.net/clients/areadocondomino/publico/cobranca/c/68073-0c1f36a86282d135d6bac098b02c50d43909fd27-flSegundaVia-palbuquerque@lopes.com.br;condominios@quintoandar.com.br'
 myfile = requests.get(url, allow_redirects=True)
-open('C:/Lab/python/applications/downloaded.pdf', 'wb').write(myfile.content)
+open('C:/Lab/python/applications/Thainazinha.pdf', 'wb').write(myfile.content)
 
-
-# import os
-# import urllib.request
-# import asyncio
-
-# async def coroutine(url):
-#     r = urllib.request.urlopen(url)
-#     filename = "couroutine_downloads.txt"
-#     with open(filename, 'wb') as f:
-#         for ch in r:
-#             f.write(ch)
-#     print_msg = 'Successfully Downloaded'
-#     return print_msg
-
-# async def main_func(urls_to_download):
-#     co = [coroutine(url) for url in urls_to_download]
-#     downloaded, downloading = await asyncio.wait(co)
-#     for i in downloaded:
-#         print(i.result())
-# urls_to_download = ["https://www.python.org/events/python-events/801/", 
-# "https://www.python.org/events/python-events/790/", 
-# "https://www.python.org/events/python-user-group/816/", 
-# "https://www.python.org/events/python-events/757/"]
-
-# eventLoop = asyncio.get_event_loop()
-# eventLoop.run_until_complete(main_func(urls_to_download))
