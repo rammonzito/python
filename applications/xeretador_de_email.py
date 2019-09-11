@@ -26,25 +26,26 @@ def read_email_from_gmail():
 
         # print(mail_ids)
 
-        print(mail_ids[-1:])
+        # print(mail_ids[:1])
 
         # first_email_id = mail_ids[0]
         # latest_email_id = int(mail_ids[-1])
 
         # print("Reading emails from {} to {}.\n\n".format(latest_email_id, first_email_id))
 
-
-        #  for i in range(latest_email_id,first_email_id, -1):
-        #     typ, data = mail.fetch(str.encode(str(i)), '(RFC822)')
-
-            # for response_part in data:
-            #     # if isinstance(response_part, tuple):
-            #     #     msg = email.message_from_string(response_part[1])
-            #         print(response_part)
-            #         email_subject = msg['subject']
-            #         email_from = msg['from']
-            #         print('From : ' + email_from)
-            #         print('Subject : ' + email_subject)
+        print(0)
+        for i in range(7190,7191, -1):
+            print(1)
+            typ, data = mail.fetch(str.encode(str(i)), '(RFC822)')
+            
+            for response_part in data:
+                # if isinstance(response_part, tuple):
+                #     msg = email.message_from_string(response_part[1])
+                    print(response_part)
+                    email_subject = msg['subject']
+                    email_from = msg['from']
+                    print('From : ' + email_from)
+                    print('Subject : ' + email_subject)
         mail.logout()
 
     except Exception as e:
