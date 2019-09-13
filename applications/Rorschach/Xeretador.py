@@ -1,6 +1,6 @@
 import imaplib
 import email
-
+import bytes
 # -------------------------------------------------
 # Reading Mail from Python
 # ------------------------------------------------
@@ -11,7 +11,7 @@ class Xeretador():
         file1 = open("C:/pass.txt","r")
 
         ORG_EMAIL   = "@gmail.com"
-        FROM_EMAIL  = "" + ORG_EMAIL #input("digita o prefixo do e-mail pra mim: ") + ORG_EMAIL
+        FROM_EMAIL  = "ramoncssantos" + ORG_EMAIL #input("digita o prefixo do e-mail pra mim: ") + ORG_EMAIL
         FROM_PWD    = file1.read()
         SMTP_SERVER = "imap.gmail.com"
         SUBJECT = "no coffee no work" # input("Digita o assunto bb:")
@@ -28,14 +28,17 @@ class Xeretador():
                 email_message = email.message_from_string(raw_email_string)
                 for response_part in maildata:
                     if isinstance(response_part, tuple):
-                        msg = email.message_from_string(response_part[1].decode('utf-8'))
+                        msg_string = (str(response_part[1], 'utf-8').replace('\r\n',''))
+                        # response_part[1] = msg_string.encode()
+                        msg = email.message_from_string(msg_string.encode().decode('utf-8'))
+                        # print(msg)
                         # email_subject = msg['subject']
                         # email_from = msg['from']
                         # print ('From : ' + email_from + '\n')
                         # print ('Subject : ' + email_subject + '\n')
 
             mail.logout()
-            return msg.as_string().strip()
+            return msg.as_string()#.replace('\n','').replace('\r','')
 
         except Exception as e:
             print(str("exception: " + e))
