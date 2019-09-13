@@ -11,7 +11,7 @@ class Xeretador():
         file1 = open("C:/pass.txt","r")
 
         ORG_EMAIL   = "@gmail.com"
-        FROM_EMAIL  = "ramoncssantos" + ORG_EMAIL #input("digita o prefixo do e-mail pra mim: ") + ORG_EMAIL
+        FROM_EMAIL  = "" + ORG_EMAIL #input("digita o prefixo do e-mail pra mim: ") + ORG_EMAIL
         FROM_PWD    = file1.read()
         SMTP_SERVER = "imap.gmail.com"
         SUBJECT = "no coffee no work" # input("Digita o assunto bb:")
