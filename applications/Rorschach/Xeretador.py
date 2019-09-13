@@ -29,16 +29,14 @@ class Xeretador():
                 for response_part in maildata:
                     if isinstance(response_part, tuple):
                         msg_string = (str(response_part[1], 'utf-8').replace('\r\n',''))
-                        # response_part[1] = msg_string.encode()
                         msg = email.message_from_string(msg_string.encode().decode('utf-8'))
-                        # print(msg)
                         # email_subject = msg['subject']
                         # email_from = msg['from']
                         # print ('From : ' + email_from + '\n')
                         # print ('Subject : ' + email_subject + '\n')
 
             mail.logout()
-            return msg.as_string()#.replace('\n','').replace('\r','')
+            return msg.as_string()
 
         except Exception as e:
             print(str("exception: " + e))

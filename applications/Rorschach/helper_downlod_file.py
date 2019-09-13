@@ -4,13 +4,12 @@ import Xeretador
 import re
 
 msg = Xeretador.Xeretador.read_email_from_gmail()
-# print(msg)
-# msg = re.sub(r"\s+", "", msg, flags=re.UNICODE)
 links = LinksFromHeaven.LinksFromHeaven.extract(msg)
-# print (msg)
 
 for url in links:
-    print(url)
-
-myfile = requests.get(url, allow_redirects=True)
-open('C:/Lab/python/applications/Thainazinha.pdf', 'wb').write(myfile.content)
+    NOME_PDF = "PDF_Legal_"
+    i = 0
+    print("Don't worry, Dona Santa, The pdf is being prepared.. ;)")
+    myfile = requests.get(url, allow_redirects=True)
+    open('C:/Lab/python/applications/' + NOME_PDF + str(i) + '.pdf', 'wb').write(myfile.content)
+    i = i + 1
