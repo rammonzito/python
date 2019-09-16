@@ -1,0 +1,1 @@
+Meu objetivo é simples: Acessar determinado e-mail para extrair um pdf a partir de um link localizado no conteúdo da mensagem de e-mail acessada.
