@@ -1,32 +1,16 @@
-# My goal is write in a specific file asps who not exist there. 
-
+# # My goal is write in a specific file asps who not exist there. 
 import os
 import re
 
 # paths and files to read/ write
-diretory = # change the repository
-file_to_read = # file to write
+directory = "C:\\Users\\ramons\\Desktop\\teste2"
+file_to_read = "C:\\Users\\ramons\\Desktop\\teste2\\sou-a-lista.txt"
+file_to_write = "C:\\Users\\ramons\\Desktop\\teste2\\zuados.txt"
+cs_to_search = "C:\\Users\\ramons\\Desktop\\teste2\\TZDB.inc"
 
-# text prefix
-prefix = "$fileList[] = '"
-sufix = "';\n"
-
-# strings to search
-cs_to_search = os.listdir(diretory)
-
-# but first take a selfie
 lines = open(file_to_read, 'r').readlines() 
-del lines[-1] 
-open(file_to_read, 'w').writelines(lines)
 
-#writing file's name
-with open(file_to_read, "a") as file_to_write:
-    file_to_write.writelines("//Forgotten by time\n")
-    for cs in cs_to_search:
-        file_cs_to_read = diretory + "\\" + cs
-        if ".cs" in cs and "myTrad." in open(file_cs_to_read, encoding="ANSI").read():
-            if not cs in open(file_to_read).read():
-                file_to_write.write(prefix + cs + sufix)
-    file_to_write.write("\n?>")
-
-file_to_write.close()
+with open(file_to_write, "a") as file_to_write:
+    for cs in lines:
+        if not cs.replace("\n", "") in open(cs_to_search, encoding="ANSI").read():
+            print("nao achei o %s ", cs)
