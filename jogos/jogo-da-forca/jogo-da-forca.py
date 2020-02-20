@@ -5,8 +5,9 @@ letras_ja_utilizadas = ""
 
 print("\n*** Jogo da Forca ***\n")
 
-letras_descobertas = ["_" for letra in palavra_secreta]
+letras_descobertas = ["-" for letra in palavra]
 
+print (letras_descobertas)
 acertou = False
 
 while acertou == False:
