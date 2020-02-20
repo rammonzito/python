@@ -1,11 +1,27 @@
-palavra = "ramon".upper()
-palavra_secreta = list(palavra)
+import random
+
+
 letras_descobertas = []
 letras_ja_utilizadas = ""
+palavras = []
+
+arquivo = open("palavras.txt", "r")
+
+for linha in arquivo:
+    linha = linha.strip()
+    palavras.append(linha)
+
+arquivo.close()
+
+numero = random.randrange(0, len(palavras))
+palavra_secreta = palavras[numero].upper()
+
+
+print(palavra_secreta)
 
 print("\n*** Jogo da Forca ***\n")
 
-letras_descobertas = ["-" for letra in palavra]
+letras_descobertas = ["-" for letra in palavra_secreta]
 
 print (letras_descobertas)
 acertou = False
