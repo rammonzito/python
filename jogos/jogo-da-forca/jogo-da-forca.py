@@ -46,3 +46,6 @@ while acertou == False:
     
 print("Parabéns! Você acertou!")
 input()
+
+
+# atribuir imagens, usabilidade, tornar biblioteca
