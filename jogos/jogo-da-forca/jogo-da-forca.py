@@ -1,53 +1,35 @@
-import random
-import desenhos
+print("Bem-Vindo ao Jogo da Forca")
 
-letras_descobertas = []
-letras_ja_utilizadas = ""
-palavras = []
+palavra_secreta = "goiaba".upper()
 
-arquivo = open("palavras.txt", "r")
-
-for linha in arquivo:
-    linha = linha.strip()
-    palavras.append(linha)
-
-arquivo.close()
-
-numero = random.randrange(0, len(palavras))
-palavra_secreta = palavras[numero].upper()
-
-
-print("\n*** Jogo da Forca ***\n")
-
-letras_descobertas = ["-" for letra in palavra_secreta]
-
-print (letras_descobertas)
-acertou = False
+numero_de_tentativas = 3
 erros = 0
-while acertou == False:
-    print("A palavra tem %s letras" % len(palavra_secreta))
-    print("Letra já utilizadas: %s " % letras_ja_utilizadas)
+acertou = False
+letras_utilizadas = []
 
-    letra = str(input("Digite uma letra:")).upper()
-    letras_ja_utilizadas += letra + ", "
+def captura_letra():
+    letra = input("informe uma letra: ")
+    return letra.upper()
 
-    for i in range(0, len(palavra_secreta)) :
-        if letra == palavra_secreta[i] :
-            letras_descobertas[i] = letra
-            acertou = True
+palavra_apresentada = ["-" for letra in palavra_secreta]
+while erros < numero_de_tentativas:
+    print("Situação:")
+    print(palavra_apresentada)
+    print("Letras utilizadas:")
+    print(letras_utilizadas)
 
-    if acertou == False:
+    letra = captura_letra()
+    print("chute: " + letra)
+    letras_utilizadas.append(letra)
+
+    if letra in palavra_secreta:
+        acertou = True   
+        for i in range(0, len(palavra_apresentada)):
+            if letra == palavra_secreta[i]:
+                palavra_apresentada[i] = letra
+    else:
+        acertou = False
         erros += 1
-        desenhos.desenhos.desenha_forca(erros)
-        
-    print(letras_descobertas[i])
 
-    for x in range(0, len(letras_descobertas)) :
-        if letras_descobertas[x] == "-" :
-            acertou = False
+    print(acertou)
     
-desenhos.desenhos.ganhador()
-input()
-
-
-# atribuir imagens, usabilidade, tornar biblioteca
