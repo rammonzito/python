@@ -1,4 +1,4 @@
-palavra = "RAMON"
+palavra = "ramon".upper()
 palavra_secreta = list(palavra)
 letras_descobertas = []
 letras_ja_utilizadas = ""
